@@ -1,6 +1,8 @@
 package hexlet.code;
 
 
+import hexlet.code.games.General;
+
 public class Even {
     private static final int FROM_VALUE_NUMBER = 1;
     private static final int TO_VALUE_NUMBER = 99;
