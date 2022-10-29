@@ -1,35 +1,57 @@
 package hexlet.code;
 
-
-import hexlet.code.games.General;
+import java.util.Scanner;
 
 public class Even {
-    private static final int FROM_VALUE_NUMBER = 1;
-    private static final int TO_VALUE_NUMBER = 99;
 
-    public static void startEven() {
-        int indexOfQuestion = 0;
-        int indexOfAnswer = 1;
+    public static void startGame() {
+        Scanner keyboardInput = new Scanner(System.in);
 
-        String[][] correctAnswers = new String[General.NUMBER_OF_ROUNDS][indexOfAnswer + 1];
+        int numberOfRounds = 3;
+        int fromValueNumber = 1;
+        int toValueNumber = 99;
 
-        for (int i = 0; i < General.NUMBER_OF_ROUNDS; i++) {
+        String[][] answersAndQuestions = new String[numberOfRounds][2];
 
-            int unfundedNumber = numberGenerator(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
+        for (int i = 0; i < numberOfRounds; i++) {
+            int currentNumber = pseudorandom(fromValueNumber, toValueNumber);
 
-            correctAnswers[i][indexOfQuestion] = Integer.toString(unfundedNumber);
+            answersAndQuestions[i][0] = String.valueOf(currentNumber);
 
-            if (unfundedNumber % 2 == 0) {
-                correctAnswers[i][indexOfAnswer] = "yes";
+            if (currentNumber % 2 == 0) {
+                answersAndQuestions[i][1] = "yes";
             } else {
-                correctAnswers[i][indexOfAnswer] = "no";
+                answersAndQuestions[i][1] = "no";
             }
         }
-        General.gameEngine("Answer 'yes' if the number is even, otherwise answer 'no'.",
-                correctAnswers);
+        System.out.print("Welcome to the Brain Games!\n"
+                + "May I have your name? ");
+        String playerName = keyboardInput.next();
+        System.out.printf("Hello, %s!\n", playerName);
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+
+        for (int j = 0; j < numberOfRounds; j++) {
+            String gameQuestion = answersAndQuestions[j][0];
+            String gameAnswer = answersAndQuestions[j][1];
+
+            System.out.printf("Question: %s\n", gameQuestion);
+            System.out.print("Your answer: ");
+
+            String playerAnswer = keyboardInput.next();
+
+            if (playerAnswer.equals(gameAnswer)) {
+                System.out.println("Correct!");
+            } else {
+                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n", playerAnswer, gameAnswer);
+                System.out.printf("Let's try again, %s\n", playerName);
+                return;
+            }
+        }
+        keyboardInput.close();
+        System.out.printf("Congratulations, %s!\n", playerName);
     }
 
-    public static int numberGenerator(int fromValue, int toValue) {
-        return (int) (fromValue + (Math.random() * toValue));
+    public static int pseudorandom(int number1, int number2) {
+        return (int) (number1 + Math.random() * number2);
     }
 }
