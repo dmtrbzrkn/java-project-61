@@ -6,5 +6,6 @@
 [Calc game](https://asciinema.org/a/FRBpajOWK9gh3k5u257A0ndzZ)
 [GCD game](https://asciinema.org/a/wIbWe6TCKkUoQv3WOubhCKtNg)
 [Progression game](https://asciinema.org/a/NZxqc4gu2B2fKgWEA0Qm5gjDV)
+[Prime game](https://asciinema.org/a/ePYTUreliXhgFvOriaP9e8JwR)
 
 
