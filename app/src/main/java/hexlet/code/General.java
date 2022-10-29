@@ -32,7 +32,7 @@ public class General {
                 System.out.println("Correct!");
             } else {
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n", playerAnswer, gameAnswer);
-                System.out.printf("Let's try again, %s\n", playerName);
+                System.out.printf("Let's try again, %s!\n", playerName);
                 return;
             }
         }
