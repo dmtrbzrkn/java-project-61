@@ -7,6 +7,7 @@ import static hexlet.code.General.pseudorandom;
 import static hexlet.code.General.engineStart;
 
 public class Progression {
+    public static final int LAST_NUMBER = 10;
     public static void startGame() {
         String condition = "What number is missing in the progression?";
         String[][] answersAndQuestions = new String[NUMBERS_OF_ROUND][2];
@@ -15,7 +16,7 @@ public class Progression {
             int firstTerm = pseudorandom(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
             int difference = pseudorandom(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
 
-            int[] progression = generateProgression(firstTerm, difference);
+            int[] progression = generateProgression(firstTerm, difference, LAST_NUMBER);
             int positionNumber = pseudorandom(0, progression.length - 1);
 
             answersAndQuestions[i][1] = Integer.toString(progression[positionNumber]);
@@ -33,8 +34,7 @@ public class Progression {
         engineStart(condition, answersAndQuestions);
     }
 
-    public static int[] generateProgression(int firstTerm, int difference) {
-        int lastNumber = 10;
+    public static int[] generateProgression(int firstTerm, int difference, int lastNumber) {
         int[] progression = new int[lastNumber];
         progression[0] = firstTerm;
 
