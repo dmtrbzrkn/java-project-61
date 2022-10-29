@@ -1,37 +1,37 @@
 package hexlet.code;
 
 public class SearchGCD {
-    public static int binaryGCD(int a, int b) {
-        a = Math.abs(a);
-        b = Math.abs(b);
+    public static int binaryGCD(int firstNumber, int secondNumber) {
+        firstNumber = Math.abs(firstNumber);
+        secondNumber = Math.abs(secondNumber);
         int factor = 1;
         for (;;) {
-            if (a == b) {
-                return factor * a;
+            if (firstNumber == secondNumber) {
+                return factor * firstNumber;
             }
-            if (a == 0) {
-                return b * factor;
+            if (firstNumber == 0) {
+                return secondNumber * factor;
             }
-            if (b == 0) {
-                return a * factor;
+            if (secondNumber == 0) {
+                return firstNumber * factor;
             }
-            if (a == 1 || b == 1) {
+            if (firstNumber == 1 || secondNumber == 1) {
                 return factor;
             }
-            if (a % 2 == 0 && b % 2 == 0) {
-                a = a / 2;
-                b = b / 2;
+            if (firstNumber % 2 == 0 && secondNumber % 2 == 0) {
+                firstNumber = firstNumber / 2;
+                secondNumber = secondNumber / 2;
                 factor = factor * 2;
-            } else if (a % 2 == 0 && b % 2 != 0) {
-                a = a / 2;
-            } else if (a % 2 != 0 && b % 2 == 0) {
-                b = b / 2;
-            } else if (a > b) {
-                a = (a - b) / 2;
+            } else if (firstNumber % 2 == 0 && secondNumber % 2 != 0) {
+                firstNumber = firstNumber / 2;
+            } else if (firstNumber % 2 != 0 && secondNumber % 2 == 0) {
+                secondNumber = secondNumber / 2;
+            } else if (firstNumber > secondNumber) {
+                firstNumber = (firstNumber - secondNumber) / 2;
             } else {
-                int temp = a;
-                a = (b - a) / 2;
-                b = temp;
+                int temp = firstNumber;
+                firstNumber = (secondNumber - firstNumber) / 2;
+                secondNumber = temp;
             }
 
         }
