@@ -5,5 +5,6 @@
 [Even game](https://asciinema.org/a/VjUv1NpAyr00sTEGGetLKbatx)
 [Calc game](https://asciinema.org/a/FRBpajOWK9gh3k5u257A0ndzZ)
 [GCD game](https://asciinema.org/a/wIbWe6TCKkUoQv3WOubhCKtNg)
+[Progression game](https://asciinema.org/a/NZxqc4gu2B2fKgWEA0Qm5gjDV)
 
 
