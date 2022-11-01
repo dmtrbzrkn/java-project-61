@@ -1,22 +1,19 @@
 package hexlet.code.games;
 
-import static hexlet.code.General.NUMBERS_OF_ROUND;
-import static hexlet.code.General.FROM_VALUE_NUMBER; //3
-import static hexlet.code.General.TO_VALUE_NUMBER;
-import static hexlet.code.General.pseudorandom;
-import static hexlet.code.General.engineStart;
+import static hexlet.code.Engine.NUMBERS_OF_ROUND;
+import static hexlet.code.Engine.FROM_VALUE_NUMBER;
+import static hexlet.code.Engine.TO_VALUE_NUMBER;
+import static hexlet.code.RandomUtils.generatePsrNumber;
+import static hexlet.code.Engine.runGame;
 
 public class Prime {
+    public static final String TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
     public static void startGame() {
-        String condition = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String[][] answersAndQuestions = new String[NUMBERS_OF_ROUND][2];
-        /*
-        {{Question, Answer}
-        {Question, Answer}
-        {Question, Answer}}
-        */
+
         for (int i = 0; i < NUMBERS_OF_ROUND; i++) {
-            int randomNumber = pseudorandom(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
+            int randomNumber = generatePsrNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
             answersAndQuestions[i][0] = String.valueOf(randomNumber);
             if (isPrime(randomNumber)) {
                 answersAndQuestions[i][1] = "yes";
@@ -24,7 +21,7 @@ public class Prime {
                 answersAndQuestions[i][1] = "no";
             }
         }
-        engineStart(condition, answersAndQuestions);
+        runGame(TASK, answersAndQuestions);
     }
 
     public static boolean isPrime(int number) {
