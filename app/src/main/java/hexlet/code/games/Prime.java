@@ -24,7 +24,7 @@ public class Prime {
         runGame(TASK, answersAndQuestions);
     }
 
-    public static boolean isPrime(int number) {
+    private static boolean isPrime(int number) {
         if (number > 1) {
             for (int i = 2; i < number; i++) {
                 if (number % i == 0) {
