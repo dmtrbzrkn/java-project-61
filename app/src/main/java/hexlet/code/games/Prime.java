@@ -15,11 +15,7 @@ public class Prime {
         for (int i = 0; i < NUMBERS_OF_ROUND; i++) {
             int randomNumber = generatePsrNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
             answersAndQuestions[i][0] = String.valueOf(randomNumber);
-            if (isPrime(randomNumber)) {
-                answersAndQuestions[i][1] = "yes";
-            } else {
-                answersAndQuestions[i][1] = "no";
-            }
+            answersAndQuestions[i][1] = isPrime(randomNumber) ? "yes" : "no";
         }
         runGame(TASK, answersAndQuestions);
     }
