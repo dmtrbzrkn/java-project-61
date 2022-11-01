@@ -7,17 +7,14 @@ public class General {
     public static final int FROM_VALUE_NUMBER = 1;
     public static final int TO_VALUE_NUMBER = 99;
 
-    public static int pseudorandom(int number1, int number2) {
-        return (int) (number1 + Math.random() * number2);
-    }
 
-    public static void engineStart(String condition, String[][] answersAndQuestions) {
+    public static void engineStart(String task, String[][] answersAndQuestions) {
         Scanner keyboardInput = new Scanner(System.in);
         System.out.print("Welcome to the Brain Games!\n"
                 + "May I have your name? ");
         String playerName = keyboardInput.next();
         System.out.printf("Hello, %s!\n", playerName);
-        System.out.println(condition);
+        System.out.println(task);
 
         for (int j = 0; j < NUMBERS_OF_ROUND; j++) {
             String gameQuestion = answersAndQuestions[j][0];
