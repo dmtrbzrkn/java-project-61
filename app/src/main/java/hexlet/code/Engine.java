@@ -2,13 +2,13 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class General {
+public class Engine {
     public static final int NUMBERS_OF_ROUND = 3;
     public static final int FROM_VALUE_NUMBER = 1;
     public static final int TO_VALUE_NUMBER = 99;
 
 
-    public static void engineStart(String task, String[][] answersAndQuestions) {
+    public static void runGame(String task, String[][] answersAndQuestions) {
         Scanner keyboardInput = new Scanner(System.in);
         System.out.print("Welcome to the Brain Games!\n"
                 + "May I have your name? ");
