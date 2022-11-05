@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.utils;
 
 public class GCDFinder {
     public static int findGCD(int firstNumber, int secondNumber) {

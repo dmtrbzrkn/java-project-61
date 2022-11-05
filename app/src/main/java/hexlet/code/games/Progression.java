@@ -3,23 +3,22 @@ package hexlet.code.games;
 import static hexlet.code.Engine.NUMBERS_OF_ROUND;
 import static hexlet.code.Engine.FROM_VALUE_NUMBER;
 import static hexlet.code.Engine.TO_VALUE_NUMBER;
-import static hexlet.code.RandomUtils.generatePsrNumber;
+import static hexlet.code.utils.RandomUtils.generateNumber;
 import static hexlet.code.Engine.runGame;
 
 public class Progression {
-    public static final int LAST_NUMBER = 10;
-    public static final String TASK = "What number is missing in the progression?";
+    private static final int MIN_PROGRESSION_LENGTH = 5;
+    private static final int MAX_PROGRESSION_LENGTH = 10;
+    private static final String TASK = "What number is missing in the progression?";
 
     public static void startGame() {
         String[][] answersAndQuestions = new String[NUMBERS_OF_ROUND][2];
-
         for (int i = 0; i < NUMBERS_OF_ROUND; i++) {
-            int firstTerm = generatePsrNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
-            int difference = generatePsrNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
-
-            int[] progression = generateProgression(firstTerm, difference);
-            int positionNumber = generatePsrNumber(0, progression.length - 1);
-
+            int length = generateNumber(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+            int firstTerm = generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
+            int difference = generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
+            int[] progression = generateProgression(firstTerm, difference, length);
+            int positionNumber = generateNumber(0, progression.length - 1);
             answersAndQuestions[i][1] = Integer.toString(progression[positionNumber]);
             var question = new StringBuilder();
             for (int j = 0; j < progression.length; j++) {
@@ -35,12 +34,10 @@ public class Progression {
         runGame(TASK, answersAndQuestions);
     }
 
-    private static int[] generateProgression(int firstTerm, int difference) {
-        int[] progression = new int[Progression.LAST_NUMBER];
-        progression[0] = firstTerm;
-
-        for (int i = 1; i < progression.length; i++) {
-            progression[i] = progression[i - 1] + difference;
+    private static int[] generateProgression(int firstTerm, int difference, int length) {
+        int[] progression = new int[length];
+        for (int i = 0; i < progression.length; i++) {
+            progression[i] = firstTerm + difference * i;
         }
         return progression;
     }
