@@ -33,7 +33,7 @@ public class Progression {
         runGame(TASK, answersAndQuestions);
     }
 
-    private static int[] generateProgression(int firstTerm, int difference, int length) {
+    public static int[] generateProgression(int firstTerm, int difference, int length) {
         int[] progression = new int[length];
         for (int i = 0; i < progression.length; i++) {
             progression[i] = firstTerm + difference * i;
