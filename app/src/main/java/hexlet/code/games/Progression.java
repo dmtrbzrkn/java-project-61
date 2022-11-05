@@ -25,8 +25,7 @@ public class Progression {
                 if (j == positionNumber) {
                     question.append(".. ");
                 } else {
-                    question.append(progression[j]);
-                    question.append(" ");
+                    question.append(progression[j]).append(" ");
                 }
             }
             answersAndQuestions[i][0] = question.toString();
