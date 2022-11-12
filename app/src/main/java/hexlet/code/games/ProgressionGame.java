@@ -14,12 +14,13 @@ public class ProgressionGame {
     public static void startProgressionGame() {
         String[][] answersAndQuestions = new String[NUMBERS_OF_ROUND][2];
         for (int i = 0; i < NUMBERS_OF_ROUND; i++) {
-            int[] progression = generateProgression(generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER),
-                    generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER),
-                    generateNumber(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH));
+            int length = generateNumber(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+            int firstTerm = generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
+            int difference = generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
+            int[] progression = generateProgression(firstTerm, difference, length);
             int positionNumber = generateNumber(0, progression.length - 1);
             answersAndQuestions[i][1] = Integer.toString(progression[positionNumber]);
-            var question = new StringBuilder();
+            StringBuilder question = new StringBuilder();
             for (int j = 0; j < progression.length; j++) {
                 if (j == positionNumber) {
                     question.append(".. ");

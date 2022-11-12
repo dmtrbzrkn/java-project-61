@@ -21,14 +21,15 @@ public class PrimeGame {
     }
 
     private static boolean isPrime(int number) {
-        if (number <= 1) {
+        if (number > 1) {
+            for (int i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        } else {
             return false;
         }
-        for (int i = 2; i < Math.sqrt(number); i++) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
     }
 }
