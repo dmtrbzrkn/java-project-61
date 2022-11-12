@@ -6,18 +6,17 @@ import static hexlet.code.Engine.TO_VALUE_NUMBER;
 import static hexlet.code.utils.RandomUtils.generateNumber;
 import static hexlet.code.Engine.runGame;
 
-public class Progression {
+public class ProgressionGame {
     private static final int MIN_PROGRESSION_LENGTH = 5;
     private static final int MAX_PROGRESSION_LENGTH = 10;
     private static final String TASK = "What number is missing in the progression?";
 
-    public static void startGame() {
+    public static void startProgressionGame() {
         String[][] answersAndQuestions = new String[NUMBERS_OF_ROUND][2];
         for (int i = 0; i < NUMBERS_OF_ROUND; i++) {
-            int length = generateNumber(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
-            int firstTerm = generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
-            int difference = generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
-            int[] progression = generateProgression(firstTerm, difference, length);
+            int[] progression = generateProgression(generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER),
+                    generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER),
+                    generateNumber(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH));
             int positionNumber = generateNumber(0, progression.length - 1);
             answersAndQuestions[i][1] = Integer.toString(progression[positionNumber]);
             var question = new StringBuilder();

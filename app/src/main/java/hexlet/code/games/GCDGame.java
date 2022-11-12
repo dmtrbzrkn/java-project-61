@@ -8,10 +8,10 @@ import static hexlet.code.Engine.TO_VALUE_NUMBER;
 import static hexlet.code.utils.RandomUtils.generateNumber;
 import static hexlet.code.Engine.runGame;
 
-public class GCD {
+public class GCDGame {
     public static final String TASK = "Find the greatest common divisor of given numbers.";
 
-    public static void startGame() {
+    public static void startGCDGame() {
         String[][] answersAndQuestions = new String[NUMBERS_OF_ROUND][2];
 
         for (int i = 0; i < NUMBERS_OF_ROUND; i++) {

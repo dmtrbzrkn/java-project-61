@@ -7,29 +7,29 @@ import static hexlet.code.utils.RandomUtils.generateNumber;
 import static hexlet.code.Engine.runGame;
 
 
-public class Calculator {
+public class CalculatorGame {
+    private static final char[] OPERATIONS = {'+', '-', '*'};
     private static final String TASK = "What is the result of the expression?";
 
-    public static void startCalc() {
+    public static void startCalculatorGame() {
         String[][] answersAndQuestions = new String[NUMBERS_OF_ROUND][2];
-        char[] operation = new char[]{'+', '-', '*'};
 
         for (int i = 0; i < NUMBERS_OF_ROUND; i++) {
             int firstOperand = generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
             int secondOperand = generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
-            char currentOperator = generatePsrChar(operation);
+            char currentOperator = generateOperation();
 
             answersAndQuestions[i][0] = String.format("%d %s %d", firstOperand, currentOperator, secondOperand);
-            answersAndQuestions[i][1] = calc(currentOperator, firstOperand, secondOperand);
+            answersAndQuestions[i][1] = calculateAnswer(currentOperator, firstOperand, secondOperand);
         }
         runGame(TASK, answersAndQuestions);
     }
 
-    private static char generatePsrChar(char[] operations) {
-        return operations[generateNumber(0, operations.length - 1)];
+    private static char generateOperation() {
+        return OPERATIONS[generateNumber(0, OPERATIONS.length - 1)];
     }
 
-    private static String calc(char operator, int number1, int number2) {
+    private static String calculateAnswer(char operator, int number1, int number2) {
         switch (operator) {
             case '+' -> {
                 return String.valueOf(number1 + number2);
@@ -40,9 +40,7 @@ public class Calculator {
             case '*' -> {
                 return String.valueOf(number1 * number2);
             }
-            default -> {
-                return "Incorrect operator";
-            }
+            default -> throw new RuntimeException("No such operator");
         }
     }
 }

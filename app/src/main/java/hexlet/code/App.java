@@ -1,10 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.Calculator;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
+import hexlet.code.games.CalculatorGame;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.GCDGame;
+import hexlet.code.games.ProgressionGame;
+import hexlet.code.games.PrimeGame;
 
 import java.util.Scanner;
 
@@ -25,13 +25,13 @@ public class App {
 
         switch (choice) {
             case "1" -> Cli.greet();
-            case "2" -> Even.startGame();
-            case "3" -> Calculator.startCalc();
-            case "4" -> GCD.startGame();
-            case "5" -> Progression.startGame();
-            case "6" -> Prime.startGame();
+            case "2" -> EvenGame.startEvenGame();
+            case "3" -> CalculatorGame.startCalculatorGame();
+            case "4" -> GCDGame.startGCDGame();
+            case "5" -> ProgressionGame.startProgressionGame();
+            case "6" -> PrimeGame.startPrimeGame();
             case "0" -> System.out.println("Come back if you want to play!");
-            default -> System.out.println("Incorrect input!");
+            default -> throw new RuntimeException("No such item");
         }
     }
 }

@@ -6,10 +6,10 @@ import static hexlet.code.Engine.TO_VALUE_NUMBER;
 import static hexlet.code.utils.RandomUtils.generateNumber;
 import static hexlet.code.Engine.runGame;
 
-public class Even {
+public class EvenGame {
     public static final String TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static void startGame() {
+    public static void startEvenGame() {
 
         String[][] answersAndQuestions = new String[NUMBERS_OF_ROUND][2];
 

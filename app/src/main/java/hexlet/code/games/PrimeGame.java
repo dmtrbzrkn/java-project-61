@@ -6,10 +6,10 @@ import static hexlet.code.Engine.TO_VALUE_NUMBER;
 import static hexlet.code.utils.RandomUtils.generateNumber;
 import static hexlet.code.Engine.runGame;
 
-public class Prime {
+public class PrimeGame {
     public static final String TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    public static void startGame() {
+    public static void startPrimeGame() {
         String[][] answersAndQuestions = new String[NUMBERS_OF_ROUND][2];
 
         for (int i = 0; i < NUMBERS_OF_ROUND; i++) {
