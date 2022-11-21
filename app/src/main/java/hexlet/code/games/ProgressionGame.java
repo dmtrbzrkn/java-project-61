@@ -18,11 +18,11 @@ public class ProgressionGame {
             int firstTerm = generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
             int difference = generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
             int[] progression = generateProgression(firstTerm, difference, length);
-            int positionNumber = generateNumber(0, progression.length - 1);
-            answersAndQuestions[i][1] = Integer.toString(progression[positionNumber]);
+            int hiddenElementPosition = generateNumber(0, progression.length - 1);
+            answersAndQuestions[i][1] = Integer.toString(progression[hiddenElementPosition]);
             StringBuilder question = new StringBuilder();
             for (int j = 0; j < progression.length; j++) {
-                if (j == positionNumber) {
+                if (j == hiddenElementPosition) {
                     question.append(".. ");
                 } else {
                     question.append(progression[j]).append(" ");
@@ -33,10 +33,10 @@ public class ProgressionGame {
         runGame(TASK, answersAndQuestions);
     }
 
-    public static int[] generateProgression(int firstTerm, int difference, int length) {
-        int[] progression = new int[length];
+    public static int[] generateProgression(int firstElement, int step, int progressionLength) {
+        int[] progression = new int[progressionLength];
         for (int i = 0; i < progression.length; i++) {
-            progression[i] = firstTerm + difference * i;
+            progression[i] = firstElement + step * i;
         }
         return progression;
     }

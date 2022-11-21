@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.utils.GCDFinder;
-
 import static hexlet.code.Engine.NUMBERS_OF_ROUND;
 import static hexlet.code.Engine.FROM_VALUE_NUMBER;
 import static hexlet.code.Engine.TO_VALUE_NUMBER;
@@ -19,8 +17,25 @@ public class GCDGame {
             int secondNumber = generateNumber(FROM_VALUE_NUMBER, TO_VALUE_NUMBER);
 
             answersAndQuestions[i][0] = String.format("%d %d", firstNumber, secondNumber);
-            answersAndQuestions[i][1] = String.valueOf(GCDFinder.findGCD(firstNumber, secondNumber));
+            answersAndQuestions[i][1] = String.valueOf(findGCD(firstNumber, secondNumber));
         }
         runGame(TASK, answersAndQuestions);
+    }
+
+    private static int findGCD(int firstNumber, int secondNumber) {
+        firstNumber = Math.abs(firstNumber);
+        secondNumber = Math.abs(secondNumber);
+        if (secondNumber > firstNumber) {
+            int temp = firstNumber;
+            firstNumber = secondNumber;
+            secondNumber = temp;
+        }
+        int r = firstNumber % secondNumber;
+        while (r != 0) {
+            firstNumber = secondNumber;
+            secondNumber = r;
+            r = firstNumber % secondNumber;
+        }
+        return secondNumber;
     }
 }
